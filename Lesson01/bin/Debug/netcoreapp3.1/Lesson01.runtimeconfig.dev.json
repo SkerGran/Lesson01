@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Sker\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Sker\\.nuget\\packages"
+    ]
+  }
+}

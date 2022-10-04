@@ -1,0 +1,14 @@
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.exe
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.deps.json
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.runtimeconfig.json
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.runtimeconfig.dev.json
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.dll
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\bin\Debug\netcoreapp3.1\Lesson01.pdb
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.csproj.AssemblyReference.cache
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.AssemblyInfoInputs.cache
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.AssemblyInfo.cs
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.csproj.CoreCompileInputs.cache
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.dll
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.pdb
+C:\Users\Sker\source\repos\WinFormsApp\Lesson01\Lesson01\obj\Debug\netcoreapp3.1\Lesson01.genruntimeconfig.cache
