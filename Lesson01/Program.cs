@@ -4,6 +4,30 @@ namespace GeniyIdiotConsoleApp
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            //Declare variables
+            bool isOnPlay = true;
+            string playerName;
+            int countQuestions = 5;
+            int countRightAnswers = 0;
+            string[,] quiz = GetQuiz(countQuestions);
+            string[,] randomQuiz;
+
+            while (isOnPlay)
+            {
+                playerName = GetPlayerName();
+
+                randomQuiz = ShuffleQuiz(quiz);
+
+                countRightAnswers = RunQuiz(randomQuiz, countQuestions);
+
+                MakeDiagnoses(countRightAnswers, playerName);
+
+                isOnPlay = QuitQuiz(isOnPlay, playerName);
+            }
+        }
+
         static string GetPlayerName()
         {
             Console.Write("Игрок, введите Ваше имя: ");
@@ -13,7 +37,7 @@ namespace GeniyIdiotConsoleApp
 
         static string[,] GetQuiz(int countQuestions)
         {
-            string[,] quiz = new string[5, 2]// почему то выдает ошибку, если ставить countQuestions вместо количества строк
+            string[,] quiz = new string[5, 2]// почему то выдает ошибку, если ставить countQuestions вместо количества строк. Скрин в корне "Скрин ошибки.png"
             {
                 { "Сколько будет два плюс два умноженное на два?" , "6"},
                 { "Бревно нужно распилить на 10 частей. Сколько распилов нужно сделать?", "9" },
@@ -65,8 +89,8 @@ namespace GeniyIdiotConsoleApp
         }
 
 
-        //Set diagnoses
-        static void SetDiagnoses(int countRightAnswers, string playerName)
+        //Make a Diagnoses diagnoses
+        static void MakeDiagnoses(int countRightAnswers, string playerName)
         {
             Console.WriteLine("Количество правильных ответов: " + countRightAnswers);
 
@@ -74,37 +98,20 @@ namespace GeniyIdiotConsoleApp
             Console.WriteLine(playerName + " Вы " + diagnoses[countRightAnswers] + "!!!");
         }
 
+        //Приводит ответ к нижнему регистру, но почему то isOnPlay не становится false
         static bool QuitQuiz(bool isOnPlay, string playerName)
         {
-            Console.Write(playerName + ", Вы хоитите продолжить игру? да/нет");
-            string isOnQuit = Console.ReadLine();
+            Console.Write(playerName + ", Вы хотите продолжить игру? да/нет");
+            string isOnQuit;
+            do
+            {
+                isOnQuit = Console.ReadLine().ToLower();
+                Console.WriteLine(isOnQuit);
+            } while (isOnQuit != "да" || isOnQuit != "нет");
             if (isOnQuit == "да") isOnPlay = true;
             else if (isOnQuit == "нет") isOnPlay = false;
+
             return isOnPlay;
-        }
-
-        static void Main(string[] args)
-        {
-            //Declare variables
-            bool isOnPlay = true;
-            string playerName;
-            int countQuestions = 5;
-            int countRightAnswers = 0;
-            string[,] quiz = GetQuiz(countQuestions);
-            string[,] randomQuiz;
-
-            while (isOnPlay)
-            {
-                playerName = GetPlayerName();
-
-                randomQuiz = ShuffleQuiz(quiz);
-
-                countRightAnswers = RunQuiz(randomQuiz, countQuestions);
-
-                SetDiagnoses(countRightAnswers, playerName);
-
-                isOnPlay = QuitQuiz(isOnPlay, playerName);
-            }
         }
     }
 }
