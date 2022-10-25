@@ -2,7 +2,7 @@
 
 namespace GeniyIdiotConsoleApp
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -11,7 +11,7 @@ namespace GeniyIdiotConsoleApp
             string playerName;
             int countQuestions = 5;
             int countRightAnswers = 0;
-            string[,] quiz = GetQuiz(countQuestions);
+            string[,] quiz = GetQuiz();
             string[,] randomQuiz;
 
             while (isOnPlay)
@@ -35,9 +35,11 @@ namespace GeniyIdiotConsoleApp
             return playerName;
         }
 
-        static string[,] GetQuiz(int countQuestions)
+        // Почему то выдает ошибку, если ставить countQuestions вместо количества строк. Скрин в корне "Скрин ошибки.png"
+        // В причине не разобрался, но ошибку устранил убрав размерность массива
+        static string[,] GetQuiz()
         {
-            string[,] quiz = new string[5, 2]// почему то выдает ошибку, если ставить countQuestions вместо количества строк. Скрин в корне "Скрин ошибки.png"
+            string[,] quiz = new string[,]  
             {
                 { "Сколько будет два плюс два умноженное на два?" , "6"},
                 { "Бревно нужно распилить на 10 частей. Сколько распилов нужно сделать?", "9" },
@@ -48,6 +50,7 @@ namespace GeniyIdiotConsoleApp
             return quiz;
         }
 
+        // Перемешивание вопросов
         static string[,] ShuffleQuiz(string[,] arr)
         {
             Random rand = new Random();
@@ -66,6 +69,8 @@ namespace GeniyIdiotConsoleApp
             return arr;
 
         }
+
+
         static int RunQuiz(string[,] randomQuiz, int countQuestions)
         {
             int countRightAnswers = 0;
@@ -89,7 +94,7 @@ namespace GeniyIdiotConsoleApp
         }
 
 
-        //Make a Diagnoses diagnoses
+        // Постановка диагноза
         static void MakeDiagnoses(int countRightAnswers, string playerName)
         {
             Console.WriteLine("Количество правильных ответов: " + countRightAnswers);
@@ -98,20 +103,28 @@ namespace GeniyIdiotConsoleApp
             Console.WriteLine(playerName + " Вы " + diagnoses[countRightAnswers] + "!!!");
         }
 
-        //Приводит ответ к нижнему регистру, но почему то isOnPlay не становится false
+        // Приводит ответ к нижнему регистру, но почему то isOnPlay не становится false
+        // В причине не разобрался, ошибку устранил упростив цикл while
         static bool QuitQuiz(bool isOnPlay, string playerName)
         {
             Console.Write(playerName + ", Вы хотите продолжить игру? да/нет");
             string isOnQuit;
-            do
+            while (true)
             {
                 isOnQuit = Console.ReadLine().ToLower();
-                Console.WriteLine(isOnQuit);
-            } while (isOnQuit != "да" || isOnQuit != "нет");
-            if (isOnQuit == "да") isOnPlay = true;
-            else if (isOnQuit == "нет") isOnPlay = false;
+                if (isOnQuit == "да")
+                {
+                    isOnPlay = true;
+                    break;
+                }
+                if (isOnQuit == "нет")
+                {
+                    isOnPlay = false;
+                    break;
+                }
+            }
 
-            return isOnPlay;
+                return isOnPlay;
         }
     }
 }
