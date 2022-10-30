@@ -22,7 +22,7 @@ namespace GeniyIdiotConsoleApp
 
                 countRightAnswers = RunQuiz(randomQuiz, countQuestions);
 
-                MakeDiagnoses(countRightAnswers, playerName);
+                MakeDiagnoses(countQuestions, countRightAnswers, playerName);
 
                 isOnPlay = QuitQuiz(isOnPlay, playerName);
             }
@@ -95,11 +95,18 @@ namespace GeniyIdiotConsoleApp
 
 
         // Постановка диагноза
-        static void MakeDiagnoses(int countRightAnswers, string playerName)
+        // 
+        static void MakeDiagnoses(int countQuestions, int countRightAnswers, string playerName)
         {
             Console.WriteLine("Количество правильных ответов: " + countRightAnswers);
 
             string[] diagnoses = new string[6] { "кретин", "идиот", "дурак", "нормальный", "талант", "гений" };
+            if (countRightAnswers == countQuestions) countRightAnswers = 5;
+            if ((countRightAnswers / countQuestions) > 0.75) countRightAnswers = 4;
+            if ((countRightAnswers / countQuestions) > 0.5) countRightAnswers = 3;
+            if ((countRightAnswers / countQuestions) > 0.25) countRightAnswers = 2;
+            if ((countRightAnswers / countQuestions) > 0.0) countRightAnswers = 1;
+            if (countRightAnswers == 0.0) countRightAnswers = 0;
             Console.WriteLine(playerName + " Вы " + diagnoses[countRightAnswers] + "!!!");
         }
 
